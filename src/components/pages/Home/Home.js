@@ -1,6 +1,13 @@
+import styles from './Home.module.scss'
+import TableList from "../../views/TableList/TableList";
+
+
 const Home = () => {
     return (
-        <h2>All tables</h2>
+        <div>
+            <h2 className={styles.subpageTitle}>All tables</h2>
+            <TableList />
+        </div>
     )
 }
 

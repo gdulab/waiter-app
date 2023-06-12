@@ -1,11 +1,17 @@
 import { ListGroup } from "react-bootstrap";
+import TableListItem from "../TableListItem/TableListItem";
+import { useSelector } from "react-redux";
+import { getAllTables } from "../../../redux/tablesRedux";
 
 const TableList = () => {
+    const tables = useSelector(state => getAllTables(state));
     return (
         <ListGroup>
-            <ListGroup.Item>Table1</ListGroup.Item>
-            <ListGroup.Item>Table2</ListGroup.Item>
-            <ListGroup.Item>Table3</ListGroup.Item>
+            {Object.values(tables).map(table => (
+                <ListGroup.Item>
+                    <TableListItem key={table.id} id={table.id} status={table.status} />
+                </ListGroup.Item>
+            ))}
         </ListGroup>
     )
 }

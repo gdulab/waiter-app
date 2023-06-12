@@ -1,0 +1,18 @@
+@import '../../../styles/global.scss';
+
+.TableListItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.TableListItemHeader {
+    display: flex;
+
+    .TableListItemName {
+        margin: auto 5px;
+    }
+
+    .TableListItemStatus {
+        margin: auto 5px;
+    }
+}
