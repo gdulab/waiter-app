@@ -1,0 +1,23 @@
+@import '../../../styles/global.scss';
+
+.NavBar {
+    display: flex;
+    justify-content: space-between;
+    background-color: $color-theme;
+    height: 50px;
+    padding: 0 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+.title {
+    margin: auto 0;
+}
+
+.linkList {
+    margin: auto 0;
+
+    .link {
+        color: white;
+    }
+}
