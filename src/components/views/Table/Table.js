@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { getTableById } from "../../../redux/tablesRedux"
 import { useParams } from "react-router-dom";
-import { Col, Form, InputGroup, Row } from "react-bootstrap";
+import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { useState } from "react";
 import tableUpdate from "../../../utils/tableUpdate";
 
@@ -14,26 +14,24 @@ const Table = () => {
     const [maxPeopleAmount, setMaxPeopleAmount] = useState(table.maxPeopleAmount);
     const [bill, setBill] = useState(table.bill);
 
-    console.log('status', status);
-    console.log('pplA', peopleAmount);
+    console.log(table);
+
     const handleUpdate = e => {
         e.preventDefault();
         dispatch(tableUpdate({ tableId, status, peopleAmount, maxPeopleAmount, bill }));
     }
 
-
-
     return (
         <div>
             <h3>Table {tableId}</h3>
-            <Form onChange={handleUpdate}>
+            <Form onSubmit={handleUpdate}>
                 <Form.Group as={Row} controlId="formStatus">
                     <Form.Label column sm={2}><h4>Status: </h4></Form.Label>
                     <Col sm={4}>
                         <Form.Select value={status} onChange={e => setStatus(e.target.value)}>
-                            <option value={"Busy"}>Busy</option>
-                            <option value={"Free"}>Free</option>
-                            <option value={"Cleaning"}>Cleaning</option>
+                            <option value={'Busy'}>Busy</option>
+                            <option value={'Free'}>Free</option>
+                            <option value={'Cleaning'}>Cleaning</option>
                         </Form.Select>
                     </Col>
                 </Form.Group>
@@ -56,6 +54,7 @@ const Table = () => {
                         </InputGroup>
                     </Col>
                 </Form.Group>
+                <Button type="submit">Update</Button>
             </Form>
         </div>
     )
