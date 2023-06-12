@@ -7,8 +7,7 @@ import { useEffect } from "react";
 import Header from "./components/views/Header/Header";
 import Footer from "./components/views/Footer/Footer";
 import TableList from "./components/views/TableList/TableList";
-
-
+import Table from "./components/views/Table/Table";
 
 
 function App() {
@@ -21,6 +20,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/asd" element={<TableList />} />
+                <Route path="/tables/:tableId" element={<Table />} />
             </Routes>
             <Footer />
         </Container>

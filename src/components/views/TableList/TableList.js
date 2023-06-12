@@ -5,11 +5,12 @@ import { getAllTables } from "../../../redux/tablesRedux";
 
 const TableList = () => {
     const tables = useSelector(state => getAllTables(state));
+    console.log(tables);
     return (
         <ListGroup>
             {Object.values(tables).map(table => (
-                <ListGroup.Item>
-                    <TableListItem key={table.id} id={table.id} status={table.status} />
+                <ListGroup.Item key={table.id}>
+                    <TableListItem id={table.id} status={table.status} />
                 </ListGroup.Item>
             ))}
         </ListGroup>

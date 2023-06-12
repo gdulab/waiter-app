@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './TableListItem.module.scss'
 import { Button } from "react-bootstrap"
 
@@ -8,7 +9,7 @@ const TableListItem = (props) => {
                 <h3 className={styles.TableListItemName}>Table {props.id}</h3>
                 <p className={styles.TableListItemStatus}>Status: {props.status}</p>
             </div>
-            <Button>Show More</Button>
+            <Link to={"/tables/"+props.id}><Button>Show More</Button></Link>
         </div>
     )
 }
