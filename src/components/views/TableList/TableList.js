@@ -5,7 +5,6 @@ import { getAllTables } from "../../../redux/tablesRedux";
 
 const TableList = () => {
     const tables = useSelector(state => getAllTables(state));
-    console.log(tables);
     return (
         <ListGroup>
             {Object.values(tables).map(table => (

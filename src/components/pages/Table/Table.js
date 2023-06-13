@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
-import { getTableById } from "../../../redux/tablesRedux"
+import { getTableById, tableUpdateRequest } from "../../../redux/tablesRedux"
 import { useParams } from "react-router-dom";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { useState } from "react";
-import tableUpdate from "../../../utils/tableUpdate";
+
 
 const Table = () => {
     const { tableId } = useParams();
@@ -14,11 +14,9 @@ const Table = () => {
     const [maxPeopleAmount, setMaxPeopleAmount] = useState(table.maxPeopleAmount);
     const [bill, setBill] = useState(table.bill);
 
-    console.log(table);
-
     const handleUpdate = e => {
         e.preventDefault();
-        dispatch(tableUpdate({ tableId, status, peopleAmount, maxPeopleAmount, bill }));
+        dispatch(tableUpdateRequest({ tableId, status, peopleAmount, maxPeopleAmount, bill }));
     }
 
     return (
