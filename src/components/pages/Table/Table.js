@@ -9,6 +9,7 @@ const Table = () => {
     const { tableId } = useParams();
     const table = useSelector(state => getTableById(state, tableId));
     const dispatch = useDispatch();
+    const id = tableId;
     const [status, setStatus] = useState(table.status);
     const [peopleAmount, setPeopleAmount] = useState(table.peopleAmount);
     const [maxPeopleAmount, setMaxPeopleAmount] = useState(table.maxPeopleAmount);
@@ -16,7 +17,7 @@ const Table = () => {
 
     const handleUpdate = e => {
         e.preventDefault();
-        dispatch(tableUpdateRequest({ tableId, status, peopleAmount, maxPeopleAmount, bill }));
+        dispatch(tableUpdateRequest({ id, status, peopleAmount, maxPeopleAmount, bill }));
     }
 
     return (
