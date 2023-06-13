@@ -1,3 +1,4 @@
+import { API_URL } from "../config";
 //selectors
 export const getAllTables = ({ tables }) => tables;
 export const getTableById = ({ tables }, tableId) => tables.find(table => table.id === tableId)
@@ -9,11 +10,11 @@ const UPDATE_TABLE = createActionName('UPDATE_TABLE');
 
 // action creators
 export const updateTables = payload => ({ type: UPDATE_TABLES, payload });
-export const updateTable = payload => ({type: UPDATE_TABLE, payload});
+export const updateTable = payload => ({ type: UPDATE_TABLE, payload });
 
 export const fetchTables = () => {
     return (dispatch) => {
-        fetch('http://localhost:3131/api/tables')
+        fetch(`${API_URL}/tables`)
             .then(res => res.json())
             .then(tables => dispatch(updateTables(tables)));
     }
@@ -21,16 +22,29 @@ export const fetchTables = () => {
 
 export const tableUpdateRequest = (props) => {
     console.log(props);
+    if (props.status === "Free" || props.status ==="Cleaning") {
+        props.peopleAmount = 0;
+    }
+
+    if (props.status !== "Busy") {
+        props.bill = 0;
+    }
+
+    if (props.maxPeopleAmount < props.peopleAmount) {
+        props.peopleAmount = props.maxPeopleAmount;
+    }
+
     return (dispatch) => {
         const options = {
-            method: 'PUT',
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(props),
         };
 
-        fetch(`http://localhost:3131/api/tables/${props.id}`, options)
+        fetch(`${API_URL}/tables/${props.id}`, options)
+            .then(res => res.json())
             .then((res) => dispatch(updateTable(res)))
     }
 }

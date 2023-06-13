@@ -20,6 +20,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/tables/:tableId" element={<Table />} />
+                <Route path="*" element={<Home />} />
             </Routes>
             <Footer />
         </Container>
