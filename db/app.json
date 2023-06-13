@@ -1,16 +1,19 @@
 {
   "tables": [
     {
-      "id": "1",
-      "status": "Busy",
-      "peopleAmount": "3",
-      "maxPeopleAmount": "4",
-      "bill": "20"
+      "props": {
+        "id": "1",
+        "status": "Cleaning",
+        "peopleAmount": 3,
+        "maxPeopleAmount": 4,
+        "bill": 20
+      },
+      "id": "1"
     },
     {
       "id": "2",
       "status": "Free",
-      "peopleAmount": "2",
+      "peopleAmount": 2,
       "maxPeopleAmount": 3,
       "bill": 0
     },

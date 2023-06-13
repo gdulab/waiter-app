@@ -7,6 +7,7 @@ import { useState } from "react";
 
 const Table = () => {
     const { tableId } = useParams();
+    console.log(tableId);
     const table = useSelector(state => getTableById(state, tableId));
     const dispatch = useDispatch();
     const id = tableId;
