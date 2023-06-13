@@ -27,11 +27,11 @@ export const tableUpdateRequest = (props) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({props}),
+            body: JSON.stringify(props),
         };
 
         fetch(`http://localhost:3131/api/tables/${props.id}`, options)
-            .then(() => dispatch(updateTable(props)))
+            .then((res) => dispatch(updateTable(res)))
     }
 }
 
